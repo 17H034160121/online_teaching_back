@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liandao.onlineteaching.dao.ClassesMapper">
+
+    <insert id="create" parameterType="Classes">
+        INSERT INTO classes (name, category_id, create_time) VALUES (#{name}, #{categoryId}, #{createTime})
+    </insert>
+
+    <select id="getClassesList" resultType="Classes">
+        SELECT
+            id,
+            name,
+            student_num,
+            category_id,
+            create_time,
+            update_time
+        FROM classes
+        ORDER BY id DESC
+    </select>
+
+    <delete id="delete">
+        DELETE FROM classes
+        WHERE id = #{id}
+    </delete>
+
+    <update id="update" parameterType="Classes">
+        UPDATE classes
+        SET name = #{name}
+        WHERE id = #{id}
+    </update>
+
+    <select id="findById" resultType="Classes">
+        SELECT
+            id,
+            name,
+            student_num,
+            category_id,
+            create_time,
+            update_time
+        FROM classes
+        WHERE id = #{id}
+    </select>
+
+    <select id="findByName" resultType="Classes">
+        SELECT
+            id,
+            name,
+            student_num,
+            category_id,
+            create_time,
+            update_time
+        FROM classes
+        WHERE name = #{name}
+    </select>
+</mapper>
