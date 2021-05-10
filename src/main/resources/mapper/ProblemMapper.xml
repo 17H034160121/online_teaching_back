@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liandao.onlineteaching.dao.ProblemMapper">
+<mapper namespace="com.cct.onlineteaching.dao.ProblemMapper">
     <insert id="create" parameterType="Problem">
         INSERT INTO problem (title, content, user_id, category_id)
         VALUES (#{title}, #{content}, #{userId}, #{categoryId})

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liandao.onlineteaching.dao.ClassesMapper">
+<mapper namespace="com.cct.onlineteaching.dao.ClassesMapper">
 
     <insert id="create" parameterType="Classes">
         INSERT INTO classes (name, category_id, create_time) VALUES (#{name}, #{categoryId}, #{createTime})
@@ -12,8 +12,7 @@
             name,
             student_num,
             category_id,
-            create_time,
-            update_time
+            create_time
         FROM classes
         ORDER BY id DESC
     </select>
@@ -25,7 +24,10 @@
 
     <update id="update" parameterType="Classes">
         UPDATE classes
-        SET name = #{name}
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="studentNum != null">student_num = #{studentNum},</if>
+        </trim>
         WHERE id = #{id}
     </update>
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liandao.onlineteaching.dao.LiveRoomMapper">
+<mapper namespace="com.cct.onlineteaching.dao.LiveRoomMapper">
     <select id="findByUserId" resultType="LiveRoom">
         SELECT
             id,
@@ -12,7 +12,8 @@
             user_id,
             live_time,
             create_time,
-            update_time
+            update_time,
+            live_scope
         FROM live_room
         WHERE user_id = #{userId}
     </select>
@@ -29,6 +30,7 @@
             live_time,
             l.create_time,
             l.update_time,
+            live_scope,
             u.username AS author
         FROM live_room AS l
             INNER JOIN user AS u on l.user_id = u.id
