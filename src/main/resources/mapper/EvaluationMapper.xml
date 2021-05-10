@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liandao.onlineteaching.dao.EvaluationMapper">
+<mapper namespace="com.cct.onlineteaching.dao.EvaluationMapper">
     <insert id="create" parameterType="Evaluation">
         INSERT INTO evaluation (content, score, user_id, course_id)
         VALUES (#{content}, #{score}, #{userId}, #{courseId})
